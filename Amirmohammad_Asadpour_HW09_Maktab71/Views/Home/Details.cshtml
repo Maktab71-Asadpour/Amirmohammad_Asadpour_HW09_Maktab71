@@ -1,0 +1,54 @@
+﻿
+
+@model Member
+
+<html>
+
+    <head>
+        <style>
+            body {
+                direction: rtl;
+            }
+
+            th {
+                border-bottom: 2px solid black;
+                border-collapse: collapse;
+            }
+
+            th, tr, td {
+                padding: 4px;
+                min-width: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <th>شناسه</th>
+                <th>کد ملی</th>
+                <th>نام</th>
+                <th>نام خانوادگی</th>
+                <th>شماره تلفن</th>
+                <th>جنسیت</th>
+                <th>نوع عضویت</th>
+                <th>تاریخ تولد</th>
+                <th>تاریخ ایجاد</th>
+            </tr>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.NationalCode</td>
+                <td>@Model.FirstName</td>
+                <td>@Model.LastName</td>
+                <td>@Model.PhoneNumber</td>
+                <td>@Model.Gender.ToString()</td>
+                <td>@Model.MemberType.ToString()</td>
+                <td>@Model.Birthday.ToShortDateString()</td>
+                <td>@Model.RegisterDate.ToShortDateString()</td>
+            </tr>
+        </table>
+        <br><br>
+        <a type="button" class="btn btn-danger" style="margin-bottom:8px" asp-action="Back" asp-controller="Home">بازگشت</a>
+    </body>
+
+</html>

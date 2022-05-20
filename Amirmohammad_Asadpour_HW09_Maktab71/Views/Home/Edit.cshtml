@@ -1,0 +1,54 @@
+﻿@model Member
+
+<html>
+
+    <head>
+        <style>
+            body {
+                direction: rtl;
+            }
+            input {
+                margin-bottom: 8px;
+            }
+        </style>
+    </head>
+    
+    
+    <body>
+        <form asp-controller="Home" asp-action="SubmitEditedMember">
+            <label asp-for="Id">ID:</label><br>
+            <input type="text" value="@Model.Id" asp-for="Id" readonly><br>
+            
+            <label asp-for="NationalCode">National Code:</label><br>
+            <input type="text" value="@Model.NationalCode" asp-for="NationalCode" readonly><br>
+
+            <label asp-for="FirstName">First Name:</label><br>
+            <input type="text" value = "@Model.FirstName" asp-for="FirstName"><br>
+
+            <label asp-for="LastName">Last Name:</label><br>
+            <input type="text" value = "@Model.LastName" asp-for="LastName"><br>
+            
+            <label asp-for="PhoneNumber">Phone Number:</label><br>
+            <input type="text" value = "@Model.PhoneNumber" asp-for="PhoneNumber"><br>
+
+            <label asp-for="Gender">Gender:</label><br>
+            <select value="@((int)Model.Gender)" asp-for="Gender" asp-items="@(new SelectList(Enum.GetValues(typeof(GenderType))))">
+            </select><br>
+            
+            <label asp-for="MemberType">Member Type:</label><br>
+            <select value="@((int)Model.MemberType)" asp-for="MemberType" asp-items="@(new SelectList(Enum.GetValues(typeof(MembershipType))))">
+            </select><br>
+
+            <label asp-for="RegisterDate">Register Date:</label><br>
+            <input type="date" value="@Model.RegisterDate.Date.ToString("yyyy-MM-dd")" asp-for="RegisterDate" readonly><br>
+            
+            <label asp-for="Birthday">Birthday:</label><br>
+            <input type="date" value="@Model.Birthday.Date.ToString("yyyy-MM-dd")" asp-for="Birthday"><br>
+
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+        <br/><br/><br/>
+        
+    </body>
+
+</html>

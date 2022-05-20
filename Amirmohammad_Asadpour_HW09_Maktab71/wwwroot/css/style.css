@@ -1,0 +1,18 @@
+body {
+    direction: rtl;
+}
+
+th {
+    border-bottom: 2px solid black;
+    border-collapse: collapse;
+}
+
+th, tr, td {
+    padding: 4px;
+    min-width: 100px;
+}
+
+@font-face {
+    font-family: Vazir;
+    src: url('Vazir.ttf');
+}
